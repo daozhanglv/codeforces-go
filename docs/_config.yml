@@ -1,0 +1,22 @@
+title: codeforces-go Algorithm Templates
+description: Production-quality competitive programming algorithm templates in Go
+theme: minima
+url: "https://daozhanglv.github.io/codeforces-go"
+baseurl: "/codeforces-go"
+
+repository: daozhanglv/codeforces-go
+
+show_excerpts: true
+
+header_pages:
+  - index.md
+  - algorithms/data-structures.md
+  - algorithms/graph-theory.md
+  - algorithms/dynamic-programming.md
+  - algorithms/string-algorithms.md
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

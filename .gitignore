@@ -27,4 +27,7 @@
 *.txt
 *.bat
 *.md
+!README_EN.md
+!docs/**/*.md
+!docs/*.md
 *.jpg
