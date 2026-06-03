@@ -14,6 +14,7 @@ header_pages:
   - algorithms/graph-theory.md
   - algorithms/dynamic-programming.md
   - algorithms/string-algorithms.md
+  - algorithms/string-algorithms-advanced.md
 
 markdown: kramdown
 highlighter: rouge
