@@ -99,3 +99,73 @@ Prefix-sum BIT, range-update BIT, 2-D BIT, offline 2-D point queries.
 **File:** [`copypasta/union_find.go`](https://github.com/daozhanglv/codeforces-go/blob/master/copypasta/union_find.go)
 
 Includes: weighted DSU, rollback DSU, offline dynamic graph connectivity, and bipartite checking.
+
+---
+
+## Convex Hull Trick (CHT)
+
+**File:** [`copypasta/convex_hull_trick.go`](https://github.com/daozhanglv/codeforces-go/blob/master/copypasta/convex_hull_trick.go)
+
+Slope-trick DP optimization for transitions of the form `dp[i] = max(k[j]*x[i] + b[j])`.
+
+| Variant | Constraint | Complexity |
+|---------|-----------|-----------|
+| `chtDeque` | Lines: decreasing k; Queries: increasing x | O(1) amortized |
+| `chtStack` | Lines: decreasing k; Queries: arbitrary | O(log n) per query |
+
+Use `chtDeque` when both slopes and query x-values are monotone; otherwise use the Li Chao Tree.
+
+---
+
+## Li Chao Tree
+
+**File:** [`copypasta/li_chao_tree.go`](https://github.com/daozhanglv/codeforces-go/blob/master/copypasta/li_chao_tree.go)
+
+Dynamic segment tree for maximum-y queries over lines `y = kx + b`, arbitrary insert and query order.
+
+| Operation | Complexity |
+|-----------|-----------|
+| AddLine(k, b) | O(log n) |
+| QueryMax(x) | O(log n) |
+
+---
+
+## Wavelet Tree
+
+**File:** [`copypasta/wavelet_tree.go`](https://github.com/daozhanglv/codeforces-go/blob/master/copypasta/wavelet_tree.go)
+
+Static structure on integer arrays supporting powerful range queries.
+
+| Operation | Complexity |
+|-----------|-----------|
+| Kth(l, r, k) — k-th smallest in range | O(log U) |
+| CountLE(l, r, v) — count ≤ v in range | O(log U) |
+| Build | O(n log U) |
+
+---
+
+## Mergeable Heap (Skew Heap)
+
+**File:** [`copypasta/skew_heap.go`](https://github.com/daozhanglv/codeforces-go/blob/master/copypasta/skew_heap.go)
+
+Self-adjusting binary min-heap supporting O(log n) amortized merges.
+
+```go
+h1 := skewPush(nil, 3)
+h1 = skewPush(h1, 1)
+h2 := skewPush(nil, 2)
+h := skewMerge(h1, h2)  // merged heap, min = 1
+fmt.Println(h.val)       // 1
+h = skewPop(h)
+fmt.Println(h.val)       // 2
+```
+
+---
+
+## Cartesian Tree
+
+**File:** [`copypasta/cartesian_tree.go`](https://github.com/daozhanglv/codeforces-go/blob/master/copypasta/cartesian_tree.go)
+
+O(n) construction of a min-heap-ordered binary tree that is also BST-ordered by index.
+In-order traversal yields the original array indices 0, 1, …, n−1.
+The LCA of indices i and j in the Cartesian tree equals the RMQ minimum of a[i..j].
