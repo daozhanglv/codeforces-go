@@ -139,28 +139,10 @@ func AssertEqualFileCase(t *testing.T, dir string, targetCaseNum int, runFunc io
 }
 
 func AssertEqualCase(t *testing.T, rawText string, targetCaseNum int, runFunc ioFunc) {
-	rawText = strings.TrimSpace(rawText)
-	if rawText == "" {
-		t.Fatal("rawText is empty")
-	}
-
-	sepInput := "inputCopy"
-	if !strings.Contains(rawText, sepInput) {
-		sepInput = "input"
-	}
-	sepOutput := "outputCopy"
-	if !strings.Contains(rawText, sepOutput) {
-		sepOutput = "output"
-	}
-
-	testCases := [][2]string{}
-	examples := strings.Split(rawText, sepInput)
-	for _, s := range examples {
-		s = strings.TrimSpace(s)
-		if s != "" {
-			splits := strings.Split(s, sepOutput)
-			testCases = append(testCases, [2]string{splits[0], splits[1]})
-		}
+	t.Helper()
+	testCases, err := parseSampleCases(rawText)
+	if err != nil {
+		t.Fatal(err)
 	}
 
 	AssertEqualStringCase(t, testCases, targetCaseNum, runFunc)

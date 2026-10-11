@@ -240,7 +240,7 @@ func RunLeetCodeFuncWithExamples(t *testing.T, f interface{}, rawExamples [][]st
 	}
 
 	fType := reflect.TypeOf(f)
-	if fType.Kind() != reflect.Func {
+	if fType == nil || fType.Kind() != reflect.Func || reflect.ValueOf(f).IsNil() {
 		return fmt.Errorf("f must be a function")
 	}
 
@@ -326,6 +326,9 @@ func RunLeetCodeFuncWithExamples(t *testing.T, f interface{}, rawExamples [][]st
 }
 
 func RunLeetCodeFuncWithCase(t *testing.T, f interface{}, rawInputs [][]string, rawOutputs [][]string, targetCaseNum int) (err error) {
+	if len(rawInputs) != len(rawOutputs) {
+		return fmt.Errorf("input/output case counts differ: %d != %d", len(rawInputs), len(rawOutputs))
+	}
 	examples := [][]string{}
 	for i, input := range rawInputs {
 		examples = append(examples, append(append([]string{}, input...), rawOutputs[i]...))
@@ -350,7 +353,7 @@ func RunLeetCodeFuncWithFile(t *testing.T, f interface{}, filePath string, targe
 	}
 
 	fType := reflect.TypeOf(f)
-	if fType.Kind() != reflect.Func {
+	if fType == nil || fType.Kind() != reflect.Func || reflect.ValueOf(f).IsNil() {
 		return fmt.Errorf("f 必须是函数")
 	}
 
@@ -358,6 +361,9 @@ func RunLeetCodeFuncWithFile(t *testing.T, f interface{}, filePath string, targe
 	fNumIn := fType.NumIn()
 	fNumOut := fType.NumOut()
 	tcSize := fNumIn + fNumOut
+	if tcSize == 0 {
+		return fmt.Errorf("file-based test function must have at least one input or output")
+	}
 	if n%tcSize != 0 {
 		return fmt.Errorf("有效行数 %d，应该是 %d 的倍数", n, tcSize)
 	}
@@ -378,7 +384,7 @@ func RunLeetCodeClassWithExamples(t *testing.T, constructor interface{}, rawExam
 	}
 
 	cType := reflect.TypeOf(constructor)
-	if cType.Kind() != reflect.Func {
+	if cType == nil || cType.Kind() != reflect.Func || reflect.ValueOf(constructor).IsNil() {
 		return fmt.Errorf("constructor must be a function")
 	}
 	if cType.NumOut() != 1 {
@@ -481,7 +487,7 @@ func RunLeetCodeClassWithExamples(t *testing.T, constructor interface{}, rawExam
 					allCasesOk = false
 					t.Errorf("【【超时 %d】】\nCall Index %d", curCaseNum+1, callIndex)
 					return // 直接跑下一个测试用例
-				} 
+				}
 				if targetCaseNum != 0 {
 					_f()
 				}
@@ -522,10 +528,16 @@ func RunLeetCodeClassWithExamples(t *testing.T, constructor interface{}, rawExam
 }
 
 func RunLeetCodeClassWithCase(t *testing.T, constructor interface{}, rawInputs, rawOutputs []string, targetCaseNum int) (err error) {
+	if len(rawInputs) != len(rawOutputs) {
+		return fmt.Errorf("input/output case counts differ: %d != %d", len(rawInputs), len(rawOutputs))
+	}
 	examples := [][3]string{}
 	for i, input := range rawInputs {
 		input = strings.TrimSpace(input)
 		lines := strings.Split(input, "\n")
+		if len(lines) != 2 {
+			return fmt.Errorf("case %d: class input must contain two lines (method names and arguments)", i+1)
+		}
 		examples = append(examples, [3]string{lines[0], lines[1], rawOutputs[i]})
 	}
 	return RunLeetCodeClassWithExamples(t, constructor, examples, targetCaseNum)
