@@ -1,0 +1,44 @@
+name: Maintenance checks
+
+on:
+  push:
+    paths:
+      - 'main/testutil/**'
+      - 'leetcode/testutil/**'
+      - 'copypasta/treap/**'
+      - 'main/1-99/10C*'
+      - 'main/1-99/14D*'
+      - 'main/1-99/20C*'
+      - 'scripts/**'
+      - '.github/workflows/**'
+      - 'go.mod'
+      - 'go.sum'
+  pull_request:
+    paths:
+      - 'main/testutil/**'
+      - 'leetcode/testutil/**'
+      - 'copypasta/treap/**'
+      - 'main/1-99/10C*'
+      - 'main/1-99/14D*'
+      - 'main/1-99/20C*'
+      - 'scripts/**'
+      - '.github/workflows/**'
+      - 'go.mod'
+      - 'go.sum'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Test shared utilities and sample solutions
+        run: sh scripts/check.sh

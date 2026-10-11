@@ -1,5 +1,36 @@
 # 算法竞赛模板库 by 灵茶山艾府 💭💡🎈
 
+## 快速开始
+
+本仓库收录算法模板、Codeforces / LeetCode 题解及本地测试工具。Go 版本要求见 [go.mod](./go.mod)（目前为 Go 1.23），建议在 64 位环境运行。
+
+```sh
+git clone https://github.com/daozhanglv/codeforces-go.git
+cd codeforces-go
+go version
+sh scripts/check.sh
+```
+
+首次执行测试需要联网下载 Go 依赖。检查脚本会运行公共测试工具、四个 Treap 包的测试（包含 race 检查），以及三道自带样例的 Codeforces 题目；也可在 GitHub Actions 的 **Maintenance checks** 中手动运行。
+
+| 目录 | 内容 |
+| --- | --- |
+| `copypasta/` | 按知识点整理的算法模板 |
+| `main/` | Codeforces 题解，通常按题号范围分组 |
+| `leetcode/` | LeetCode 竞赛题解及测试工具 |
+| `misc/` | AtCoder、洛谷、牛客等其他平台的题解 |
+| `copypasta/template/` | 题目模板生成工具，部分依赖网络或本地配置 |
+
+测试单道 Codeforces 题目时，可以只指定解答和测试文件，避免同目录其他题目影响本次运行：
+
+```sh
+go test -count=1 main/1-99/10C.go main/1-99/10C_test.go
+```
+
+仓库包含依赖未提交 `.txt` 样例的测试、联网生成器和无尽对拍，因此 `go test ./...` 不适合作为默认检查命令。维护范围、样例写法和贡献流程见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+
+仓库沿用原项目的 module 路径 `github.com/EndlessCheng/codeforces-go`，以保持现有内部导入兼容。
+
 ## 算法 Algorithm
 
 由于算法知识点繁杂，将自己学习到的算法、做过的题目分类整理好是有必要的。
