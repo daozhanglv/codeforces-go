@@ -117,17 +117,17 @@ func (t *fft) idft(a []complex128) {
 // 关于滑动窗口点积，见后面
 func polyConvFFT(a, b []int) []int {
 	n, m := len(a), len(b)
-	limit := 1 << bits.Len(uint(n+m-1))
-	A := make([]complex128, limit)
+	k := 1 << bits.Len(uint(n+m-1)) // 避免卷积混叠
+	A := make([]complex128, k)
 	for i, v := range a {
 		A[i] = complex(float64(v), 0)
 	}
-	B := make([]complex128, limit)
+	B := make([]complex128, k)
 	for i, v := range b {
 		B[i] = complex(float64(v), 0)
 	}
 
-	t := newFFT(limit)
+	t := newFFT(k)
 	t.dft(A)
 	t.dft(B)
 	for i := range A {
@@ -140,6 +140,53 @@ func polyConvFFT(a, b []int) []int {
 		conv[i] = int(math.Round(real(A[i]))) // % mod
 	}
 	return conv
+}
+
+// 计算 a 的自卷积，n = len(a)
+// 返回一个长为 2n-1 的数组 conv，其中 conv[k] = sum_{i+j=k} a[i] * a[j]
+// 以 n = 3 为例
+// conv[0] = a[0]*a[0]
+// conv[1] = a[0]*a[1] + a[1]*a[0]
+// conv[2] = a[0]*a[2] + a[1]*a[1] + a[2]*a[0]
+// conv[3] = a[1]*a[2] + a[2]*a[1]
+// conv[4] = a[2]*a[2]
+func selfPolyConvFFT(a []int) []int {
+	n := len(a)
+	limit := 1 << bits.Len(uint(n*2-1))
+	A := make([]complex128, limit)
+	for i, v := range a {
+		A[i] = complex(float64(v), 0)
+	}
+
+	t := newFFT(limit)
+	t.dft(A)
+	for i, x := range A {
+		A[i] *= x
+	}
+	t.idft(A)
+
+	conv := make([]int, n*2-1)
+	for i := range conv {
+		conv[i] = int(math.Round(real(A[i])))
+	}
+	return conv
+}
+
+// 计算 a 的循环自卷积，n = len(a)
+// 返回一个长为 n 的数组 c，其中 c[k] = sum_{i=0}^{n-1} a[i] * a[(k-i+n)%n] = sum_{(i+j)%n=k} a[i] * a[j]
+// 由式子 sum_{(i+j)%n=k} a[i] * a[j] 可知，i+j 等于 k 或者 n+k，所以有 c[k] = conv[k] + conv[n+k]，唯一的例外是 k=n-1 时只有 c[k] = conv[k]
+// 以 n = 3 为例
+// c[0] = a[0]*a[0] + a[1]*a[2] + a[2]*a[1]
+// c[1] = a[0]*a[1] + a[1]*a[0] + a[2]*a[2]
+// c[2] = a[0]*a[2] + a[1]*a[1] + a[2]*a[0]
+// LC4021 https://leetcode.cn/problems/minimum-operations-to-make-a-rotated-palindrome-i 得到旋转回文字符串的最少操作次数
+func selfCyclicConvFFT(a []int) []int {
+	n := len(a)
+	conv := selfPolyConvFFT(a)
+	for k := range n - 1 {
+		conv[k] += conv[n+k]
+	}
+	return conv[:n]
 }
 
 // 滑动窗口点积，常用来做字符串匹配
@@ -168,6 +215,65 @@ func polyConvFFTs(coefs [][]int) []int {
 		return coefs[0]
 	}
 	return polyConvFFT(polyConvFFTs(coefs[:n/2]), polyConvFFTs(coefs[n/2:]))
+}
+
+func (t *fft) transform2(a [][]complex128, f func([]complex128)) {
+	for _, row := range a {
+		f(row)
+	}
+
+	n := len(a)
+	tmp := make([]complex128, n)
+	for j := range n {
+		for i, row := range a {
+			tmp[i] = row[j]
+		}
+		f(tmp)
+		for i, row := range a {
+			row[j] = tmp[i]
+		}
+	}
+}
+
+// 计算方阵 mat1 和方阵 mat2 的二维卷积
+// 返回 conv，其中 conv[x][y] = sum_i sum_j mat1[i][j] * mat2[x-i][y-j]，其中 0 <= x,y <= n*2-2
+// LC835 https://leetcode.cn/problems/image-overlap/
+func polyConvFFT2(mat1, mat2 [][]int) [][]int {
+	n := len(mat1)
+	n2 := n*2 - 1
+	size := 1 << bits.Len(uint(n2))
+
+	a := make([][]complex128, size)
+	b := make([][]complex128, size)
+	for i := range a {
+		a[i] = make([]complex128, size)
+		b[i] = make([]complex128, size)
+	}
+	for i, row := range mat1 {
+		for j, x := range row {
+			a[i][j] = complex(float64(x), 0)
+			b[i][j] = complex(float64(mat2[i][j]), 0)
+		}
+	}
+
+	f := newFFT(size)
+	f.transform2(a, f.dft)
+	f.transform2(b, f.dft)
+	for i, row := range b {
+		for j, x := range row {
+			a[i][j] *= x
+		}
+	}
+	f.transform2(a, f.idft)
+
+	conv := make([][]int, n2)
+	for i, row := range a[:n2] {
+		conv[i] = make([]int, n2)
+		for j, c := range row[:n2] {
+			conv[i][j] = int(math.Round(real(c)))
+		}
+	}
+	return conv
 }
 
 // 有关快速数论变换（NTT）以及更多多项式运算的内容见 math_ntt.go

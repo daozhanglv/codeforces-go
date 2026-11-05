@@ -44,9 +44,11 @@ func continuedFractionCollections() {
 
 	// sqrt(d) = [exp[0]; exp[1],..., 2*exp[0], exp[1], ..., 2*exp[0], exp[1], ...]
 	// https://en.wikipedia.org/wiki/Pell%27s_equation 解 https://oeis.org/A002350 https://oeis.org/A002349
+	// https://oi-wiki.org/math/number-theory/pell-equation/
 	// https://www.weiwen.io/post/about-the-pell-equations-2/
 	// 连分数表示 https://oeis.org/A240071
 	// 循环节长度 https://oeis.org/A003285
+	// https://www.luogu.com.cn/problem/P14551
 	calcSqrtContinuedFraction := func(d int) (exp []int) {
 		sqrtD := math.Sqrt(float64(d))
 		base := int(sqrtD)
@@ -177,7 +179,8 @@ func continuedFractionCollections() {
 	}
 
 	// 将连分数化成最简分数
-	// 模板题 https://leetcode.cn/contest/season/2019-fall/problems/deep-dark-fraction/
+	// 也可以倒过来算
+	// 模板题 https://leetcode.cn/problems/deep-dark-fraction https://leetcode.cn/contest/season/2019-fall/problems/deep-dark-fraction/
 	calcRatByContinuedFraction := func(exp []int) (a, b int) {
 		n := len(exp)
 		h := make([]int, n+2)

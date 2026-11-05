@@ -4,16 +4,18 @@
 
 生成的 $\textit{result}$ 字符串太长，超出内存限制，不行。
 
-那么，倒着做可以吗？
+倒着做可以吗？
 
-为了方便下面计算 $k$ 的位置，首先，计算出每个 $s[i]$ 处理完后的 $\textit{result}$ 的长度，记作 $\textit{size}[i]$。最终 $\textit{result}$ 的长度为 $\textit{size}[n-1]$。
+定义 $\textit{size}[i]$ 为处理完 $s[i]$ 后的 $\textit{result}$ 的长度。那么最终 $\textit{result}$ 的长度为 $\textit{size}[n-1]$，其中 $n$ 是 $s$ 的长度。
 
-首先特判 $k\ge \textit{size}[n-1]$ 的情况，下标越界，返回 $\texttt{.}$ 号。
+下面计算 $\textit{result}$ 中的下标为 $k$ 的字符。
 
-否则答案一定存在。我们从 $c = s[n-1]$ 开始倒着思考：
+先特判 $k\ge \textit{size}[n-1]$ 的情况，下标越界，返回 $\texttt{.}$ 号。
 
-- 如果 $c$ 是字母：
-    - 如果 $k = \textit{size}[n-1]-1$，那么答案就是 $\textit{result}$ 的最后一个字母，即 $c$。
+然后从最后一个字符 $c = s[n-1]$ 开始倒着思考：
+
+- 如果 $c$ 是字母，说明我们 $\textit{result}$ 的最后一个字符是 $c$：
+    - 如果 $k = \textit{size}[n-1]-1$，那么答案是 $c$。
     - 否则需要继续分析，问题变成 $s$ 的前 $n-1$ 个字母的**子问题**，可以**递归/迭代**解决。
 - 如果 $c = \texttt{*}$：
     - 无影响（我们已经特判下标越界的情况），问题变成 $s$ 的前 $n-1$ 个字母的子问题。
@@ -28,7 +30,7 @@
 
 下面代码用迭代解决。
 
-具体请看 [视频讲解](https://www.bilibili.com/video/BV1xSuFzHEa1/?t=6m41s)，欢迎点赞关注~
+[本题视频讲解](https://www.bilibili.com/video/BV1xSuFzHEa1/?t=6m41s)，欢迎点赞关注~
 
 ## 优化前
 
@@ -191,9 +193,9 @@ func processStr(s string, k int64) byte {
 
 $\textit{size}$ 数组可以去掉，只需要 $\textit{sz}$ 变量。在第二个循环中，我们可以倒推还原 $\textit{sz}$。
 
-你可能会问：`sz = max(sz - 1, 0)` 这一步怎么倒推？
+你可能会问：$c = \texttt{*}$ 的时候，`sz = max(sz - 1, 0)` 这一步怎么倒推？
 
-事实上，倒推的过程中不会出现 $\textit{sz}=0$ 的情况。如果出现，说明我们把前面的字母全部删掉了，那么前面不可能找到答案，矛盾。换句话说，我们要么返回 $\texttt{.}$ 号，要么一定会在 $\textit{sz}=0$ 之前就找到答案。
+事实上，倒推的过程中不会出现 $\textit{sz}=0$ 的情况。如果出现，说明我们把前面的字母全部删掉了，答案不存在。但代码提前判断了 $k$ 下标越界的情况，如果 $k$ 没有越界，则答案一定存在。所以 `sz = max(sz - 1, 0)` 的倒推可以直接写成 `sz += 1`。
 
 ```py [sol-Python3]
 class Solution:
@@ -370,7 +372,9 @@ func processStr(s string, k int64) byte {
 8. [常用数据结构（前缀和/差分/栈/队列/堆/字典树/并查集/树状数组/线段树）](https://leetcode.cn/circle/discuss/mOr1u6/)
 9. [数学算法（数论/组合/概率期望/博弈/计算几何/随机算法）](https://leetcode.cn/circle/discuss/IYT3ss/)
 10. [贪心与思维（基本贪心策略/反悔/区间/字典序/数学/思维/脑筋急转弯/构造）](https://leetcode.cn/circle/discuss/g6KTKL/)
-11. [链表、二叉树与回溯（前后指针/快慢指针/DFS/BFS/直径/LCA/一般树）](https://leetcode.cn/circle/discuss/K0n2gO/)
+11. [链表、树与回溯（前后指针/快慢指针/DFS/BFS/直径/LCA）](https://leetcode.cn/circle/discuss/K0n2gO/)
 12. [字符串（KMP/Z函数/Manacher/字符串哈希/AC自动机/后缀数组/子序列自动机）](https://leetcode.cn/circle/discuss/SJFwQI/)
 
 [我的题解精选（已分类）](https://github.com/EndlessCheng/codeforces-go/blob/master/leetcode/SOLUTIONS.md)
+
+欢迎关注 [B站@灵茶山艾府](https://space.bilibili.com/206214)
