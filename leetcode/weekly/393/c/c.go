@@ -8,7 +8,7 @@ import (
 
 // https://space.bilibili.com/206214
 func findKthSmallest(coins []int, k int) int64 {
-	slices.Sort(coins)
+	slices.Sort(coins) // 排序后，能整除 x 的数都在 a 中
 	a := coins[:0]
 next:
 	for _, x := range coins {

@@ -84,6 +84,10 @@ go test -count=1 main/1-99/10C.go main/1-99/10C_test.go
     - 可持久化线段树（主席树）
       - 在线二维数点
   - [树套树 seg_in_bit.go](/copypasta/seg_in_bit.go)
+  - [CDQ 分治 cdq.go](/copypasta/cdq.go)
+    - 动态逆序对
+  - [整体二分](/copypasta/cdq.go)
+    - 动态区间第 k 小
   - [0-1 线段树 segment_tree01.go](/copypasta/segment_tree01.go)
   - [左偏树（可并堆）leftist_tree.go](/copypasta/leftist_tree.go)
   - [笛卡尔树 cartesian_tree.go](/copypasta/cartesian_tree.go)
@@ -169,6 +173,8 @@ go test -count=1 main/1-99/10C.go main/1-99/10C_test.go
     - 常用恒等式
     - 容斥原理
   - [快速傅里叶变换 FFT math_fft.go](/copypasta/math_fft.go)
+    - 分治 FFT
+    - 二维 FFT
   - [快速数论变换 NTT math_ntt.go](/copypasta/math_ntt.go)
     - 包含多项式全家桶（求逆、开方等等）
   - [快速沃尔什变换 FWT math_fwt.go](/copypasta/math_fwt.go)
@@ -334,7 +340,6 @@ go test -count=1 main/1-99/10C.go main/1-99/10C_test.go
   - [二分 三分 sort.go](/copypasta/sort.go)
     - 二分答案
     - 0-1 分数规划
-    - 整体二分
   - [搜索 search.go](/copypasta/search.go)
     - 枚举排列
     - 枚举组合
@@ -369,20 +374,20 @@ go test -count=1 main/1-99/10C.go main/1-99/10C_test.go
 
 ## 算法题单
 
-[如何科学刷题？](https://leetcode.cn/circle/discuss/RvFUtj/)
+[如何科学刷题？](https://leetcode.cn/discuss/post/3141566/ru-he-ke-xue-shua-ti-by-endlesscheng-q3yd/)
 
-1. [滑动窗口与双指针（定长/不定长/单序列/双序列/三指针/分组循环）](https://leetcode.cn/circle/discuss/0viNMK/)
-2. [二分算法（二分答案/最小化最大值/最大化最小值/第K小）](https://leetcode.cn/circle/discuss/SqopEo/)
-3. [单调栈（基础/矩形面积/贡献法/最小字典序）](https://leetcode.cn/circle/discuss/9oZFK9/)
-4. [网格图（DFS/BFS/综合应用）](https://leetcode.cn/circle/discuss/YiXPXW/)
-5. [位运算（基础/性质/拆位/试填/恒等式/思维）](https://leetcode.cn/circle/discuss/dHn9Vk/)
-6. [图论算法（DFS/BFS/拓扑排序/最短路/最小生成树/二分图/基环树/欧拉路径）](https://leetcode.cn/circle/discuss/01LUak/)
-7. 🔥[动态规划（入门/背包/状态机/划分/区间/状压/数位/数据结构优化/树形/博弈/概率期望）](https://leetcode.cn/circle/discuss/tXLS3i/)
-8. [常用数据结构（前缀和/差分/栈/队列/堆/字典树/并查集/树状数组/线段树）](https://leetcode.cn/circle/discuss/mOr1u6/)
-9. [数学算法（数论/组合/概率期望/博弈/计算几何/随机算法）](https://leetcode.cn/circle/discuss/IYT3ss/)
-10. [贪心与思维（基本贪心策略/反悔/区间/字典序/数学/思维/脑筋急转弯/构造）](https://leetcode.cn/circle/discuss/g6KTKL/)
-11. [链表、二叉树与回溯（前后指针/快慢指针/DFS/BFS/直径/LCA/一般树）](https://leetcode.cn/circle/discuss/K0n2gO/)
-12. [字符串（KMP/Z函数/Manacher/字符串哈希/AC自动机/后缀数组/子序列自动机）](https://leetcode.cn/circle/discuss/SJFwQI/)
+1. [滑动窗口与双指针（定长/不定长/单序列/双序列/三指针/分组循环）](https://leetcode.cn/discuss/post/3578981/ti-dan-hua-dong-chuang-kou-ding-chang-bu-rzz7/)
+2. [二分算法（二分答案/最小化最大值/最大化最小值/第K小）](https://leetcode.cn/discuss/post/3579164/ti-dan-er-fen-suan-fa-er-fen-da-an-zui-x-3rqn/)
+3. [单调栈（基础/矩形面积/贡献法/最小字典序）](https://leetcode.cn/discuss/post/3579480/ti-dan-dan-diao-zhan-ju-xing-xi-lie-zi-d-u4hk/)
+4. [网格图（DFS/BFS/综合应用）](https://leetcode.cn/discuss/post/3580195/fen-xiang-gun-ti-dan-wang-ge-tu-dfsbfszo-l3pa/)
+5. [位运算（基础/性质/拆位/试填/恒等式/思维）](https://leetcode.cn/discuss/post/3580371/fen-xiang-gun-ti-dan-wei-yun-suan-ji-chu-nth4/)
+6. [图论算法（DFS/BFS/拓扑排序/基环树/最短路/最小生成树/网络流）](https://leetcode.cn/discuss/post/3581143/fen-xiang-gun-ti-dan-tu-lun-suan-fa-dfsb-qyux/)
+7. 🔥[动态规划（入门/背包/划分/状态机/区间/状压/数位/数据结构优化/树形/博弈/概率期望）](https://leetcode.cn/discuss/post/3581838/fen-xiang-gun-ti-dan-dong-tai-gui-hua-ru-007o/)
+8. 🔥[常用数据结构（前缀和/差分/栈/队列/堆/字典树/并查集/树状数组/线段树）](https://leetcode.cn/discuss/post/3583665/fen-xiang-gun-ti-dan-chang-yong-shu-ju-j-bvmv/)
+9. [数学算法（数论/组合/概率期望/博弈/计算几何/随机算法）](https://leetcode.cn/discuss/post/3584388/fen-xiang-gun-ti-dan-shu-xue-suan-fa-shu-gcai/)
+10. [贪心与思维（基本贪心策略/反悔/区间/字典序/数学/思维/脑筋急转弯/构造）](https://leetcode.cn/discuss/post/3091107/fen-xiang-gun-ti-dan-tan-xin-ji-ben-tan-k58yb/)
+11. [链表、树与回溯（前后指针/快慢指针/DFS/BFS/直径/LCA）](https://leetcode.cn/discuss/post/3142882/fen-xiang-gun-ti-dan-lian-biao-er-cha-sh-6srp/)
+12. [字符串（KMP/Z函数/Manacher/字符串哈希/AC自动机/后缀数组/子序列自动机）](https://leetcode.cn/discuss/post/3144832/fen-xiang-gun-ti-dan-zi-fu-chuan-kmpzhan-ugt4/)
 
 欢迎关注 [B站@灵茶山艾府](https://space.bilibili.com/206214)
 
@@ -567,6 +572,8 @@ My GoLand `Live Templates` and `Postfix Completion` [settings](/misc/my_goland_t
 [Codeforces Solve Tracker](https://tom0727.github.io/cf-problems/)
 
 [Another Codeforces Solve Tracker](https://cftracker.netlify.app/contests)
+
+[AtCoder Categories](https://atcoder-categories.github.io/) 题单
 
 [AtCoder Problems](https://kenkoooo.com/atcoder/#/table/)
 

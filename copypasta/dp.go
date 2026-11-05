@@ -27,14 +27,15 @@ LC70 爬楼梯 https://leetcode.cn/problems/climbing-stairs/
 - https://atcoder.jp/contests/dp/tasks/dp_b
 - 有障碍物 https://atcoder.jp/contests/abc129/tasks/abc129_c
 LC198 打家劫舍 https://leetcode.cn/problems/house-robber/
-- 矩阵打家劫舍 https://codeforces.com/problemset/problem/1195/C 1400
-- 值域打家劫舍 LC740 https://leetcode.cn/problems/delete-and-earn/
-- 值域打家劫舍 https://codeforces.com/problemset/problem/2161/D 2100
-- 分组+值域打家劫舍 https://atcoder.jp/contests/abc403/tasks/abc403_d
-- 类似思路的题目 https://leetcode.cn/problems/the-number-of-beautiful-subsets/
-- 恰好选 floor(n/2) 个 https://atcoder.jp/contests/abc162/tasks/abc162_f
-- 环形 LC213 https://leetcode.cn/problems/house-robber-ii/
-- 环形 https://atcoder.jp/contests/abc251/tasks/abc251_e
+- LC740 https://leetcode.cn/problems/delete-and-earn/ 值域打家劫舍
+- https://codeforces.com/problemset/problem/1195/C 1400 矩阵打家劫舍
+- https://codeforces.com/problemset/problem/2244/G 1900 |i-j| > max(a[i],a[j])
+- https://codeforces.com/problemset/problem/2161/D 2100 值域打家劫舍
+- https://atcoder.jp/contests/abc403/tasks/abc403_d 分组+值域打家劫舍
+- https://leetcode.cn/problems/the-number-of-beautiful-subsets/ 类似思路的题目
+- https://atcoder.jp/contests/abc162/tasks/abc162_f 恰好选 floor(n/2) 个
+- LC213 https://leetcode.cn/problems/house-robber-ii/ 环形
+- https://atcoder.jp/contests/abc251/tasks/abc251_e 环形
 LC2369 https://leetcode.cn/problems/check-if-there-is-a-valid-partition-for-the-array/ 1780
 - 变形：改成环形数组要怎么做
 - 相似题目 https://codeforces.com/problemset/problem/1624/E 2000
@@ -47,6 +48,7 @@ https://codeforces.com/problemset/problem/1994/C 1600 结合滑窗
 https://codeforces.com/problemset/problem/2061/C 1600 也可以状态机 DP
 https://codeforces.com/problemset/problem/30/C 1800
 https://codeforces.com/problemset/problem/2114/F 2000
+https://codeforces.com/problemset/problem/659/G 2300 子数组 DP
 https://codeforces.com/problemset/problem/1627/E 2200 刷表法 双指针
 https://codeforces.com/problemset/problem/283/D 2400 x 可以被表示为 y 个连续整数的和
 https://codeforces.com/problemset/problem/526/E 2400 滑动窗口
@@ -162,11 +164,13 @@ https://codeforces.com/contest/2043/problem/C
    - https://atcoder.jp/contests/abc320/tasks/abc320_f 2042
 - [1463. 摘樱桃 II](https://leetcode.cn/problems/cherry-pickup-ii/) 1957
    - 回文串 https://codeforces.com/problemset/problem/570/E 2300
+https://codeforces.com/problemset/problem/2193/F 1600 三方向移动
+https://codeforces.com/problemset/problem/2194/E 2000 修改一个格子后的最大路径和的最小值
 https://atcoder.jp/contests/abc175/tasks/abc175_e 每行至多选三个
 https://atcoder.jp/contests/abc147/tasks/abc147_e 1713
 
 图 DP
-https://codeforces.com/problemset/problem/2122/D 2400 t 时刻只能去 g[v][t%len(g[v])] 
+https://codeforces.com/problemset/problem/2122/D 2400 t 时刻只能去 g[v][t%len(g[v])]
 https://codeforces.com/problemset/problem/346/D 2600
 
 思考过程：
@@ -237,6 +241,7 @@ LC1388 https://leetcode.cn/problems/pizza-with-3n-slices/
 LC903 DI 序列的有效排列 https://leetcode.cn/problems/valid-permutations-for-di-sequence/
 LC2638 https://leetcode.cn/problems/count-the-number-of-k-free-subsets/
 https://www.luogu.com.cn/problem/P9688?contestId=133572
+https://www.luogu.com.cn/problem/P3188
 《挑战》pp.62-64 多重部分和问题
 
 如何消除后效性（通过巧妙地设计状态/发现性质）
@@ -335,6 +340,9 @@ https://codeforces.com/problemset/problem/864/E
 双指针优化 DP
 https://codeforces.com/problemset/problem/883/I
 https://training.olinfo.it/#/task/preoii_yutaka/statement
+
+随机游走优化 DP
+https://www.luogu.com.cn/article/7zl18kne
 
 我的视频讲解：
 https://www.bilibili.com/video/BV1Xj411K7oF 从记忆化搜索到递推
@@ -731,6 +739,7 @@ func _(abs func(int) int) {
 	// LC1092 最短公共超序列 (SCS) https://leetcode.cn/problems/shortest-common-supersequence/ 1977
 	// LC1713 https://leetcode.cn/problems/minimum-operations-to-make-a-subsequence/ 2351 若其中一个序列无重复元素，可以转换成 LIS
 	// - https://www.luogu.com.cn/problem/P1439 
+	// https://codeforces.com/problemset/problem/2242/D 1600
 	// https://codeforces.com/problemset/problem/163/A 1700 其中一个改为子串 
 	// https://codeforces.com/problemset/problem/1446/B 1800
 	// https://codeforces.com/problemset/problem/463/D 1900 多个排列的 LCS 
@@ -881,7 +890,9 @@ func _(abs func(int) int) {
 	// https://codeforces.com/problemset/problem/4/D 1700 二维 LIS + 打印方案
 	// https://codeforces.com/problemset/problem/1893/B 1700 插入后最小化 LIS
 	// https://codeforces.com/problemset/problem/1582/F1 1800
-	// https://codeforces.com/problemset/problem/67/D 1900 经典转换（最多相交问题） 
+	// https://codeforces.com/problemset/problem/67/D 1900 最多相交问题 典题
+	// - https://atcoder.jp/contests/abc439/tasks/abc439_e
+	// - https://www.luogu.com.cn/problem/P2782
 	// https://codeforces.com/problemset/problem/582/B 1900 重复数组的 LIS
 	// - todo https://codeforces.com/problemset/problem/261/D 2600
 	//        https://codeforces.com/contest/261/submission/31860735
@@ -1230,6 +1241,7 @@ func _(abs func(int) int) {
 	}
 
 	// 合法子序列 DP
+	// https://atcoder.jp/contests/abc446/tasks/abc446_d
 	// https://codeforces.com/problemset/problem/1912/K 1800
 	// https://www.luogu.com.cn/problem/P4933
 	// - LC446 https://leetcode.cn/problems/arithmetic-slices-ii-subsequence/
@@ -1404,6 +1416,7 @@ func _(abs func(int) int) {
 	// https://atcoder.jp/contests/agc020/tasks/agc020_c 所有非空子集和的中位数
 	// https://atcoder.jp/contests/dp/tasks/dp_x 邻项交换法
 	// https://www.luogu.com.cn/problem/P1064 NOIP06·提高 金明的预算方案（也可以用树上背包做）
+	// https://www.luogu.com.cn/problem/P3188 超大容量，但物品体积按照二进制尾零个数分组
 	// EXTRA: 恰好装满（相当于方案数不为 0）LC416 https://leetcode.cn/problems/partition-equal-subset-sum/
 	//        必须定义成恰好装满（紫书例题 9-5，UVa 12563）https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=441&page=show_problem&problem=4008
 	// EXTRA: 背包容量为 0 https://codeforces.com/problemset/problem/366/C 1900
@@ -1412,12 +1425,13 @@ func _(abs func(int) int) {
 	// EXTRA: 离散化背包 https://codeforces.com/contest/366/submission/61452111
 	// EXTRA: 位运算背包 https://ac.nowcoder.com/acm/problem/270788 AND 和 OR 思路是一样的
 	// 转换 https://leetcode.com/discuss/interview-question/2677093/Snowflake-oror-Tough-OA-question-oror-How-to-solve
-	zeroOneKnapsack := func(values, weights []int, maxW int) int {
+	zeroOneKnapsack := func(weights, values []int, maxW int) int {
 		// 至多装满
 		f := make([]int, maxW+1)
 		for i, w := range weights {
 			v := values[i]
-			// 这里 j 的初始值可以优化成前 i 个物品的重量之和（但不能超过 maxW）
+			// 注：如果用前 i 个物品的重量之和优化，求的是恰好装满，f 不是升序，可以在循环结束后求一遍前缀最大值
+			// 反例 weights = [5,3], values = [10,7]
 			for j := maxW; j >= w; j-- {
 				f[j] = max(f[j], f[j-w]+v)
 			}
@@ -1428,7 +1442,7 @@ func _(abs func(int) int) {
 	// 0-1 背包 EXTRA: 恰好装满
 	// https://leetcode.cn/contest/sf-tech/problems/cINqyA/
 	// 转换 二维费用 https://codeforces.com/problemset/problem/730/J
-	zeroOneKnapsackExactlyFull := func(values, weights []int, maxW int) int {
+	zeroOneKnapsackExactlyFull := func(weights, values []int, maxW int) int {
 		f := make([]int, maxW+1)
 		for i := range f {
 			f[i] = -1e9 // -1e18
@@ -1436,6 +1450,7 @@ func _(abs func(int) int) {
 		f[0] = 0
 		for i, w := range weights {
 			v := values[i]
+			// 这里 j 的初始值可以优化成前 i 个物品的重量之和（但不能超过 maxW）
 			for j := maxW; j >= w; j-- {
 				f[j] = max(f[j], f[j-w]+v)
 			}
@@ -1457,7 +1472,7 @@ func _(abs func(int) int) {
 	// - LC2742 https://leetcode.cn/problems/painting-the-walls/
 	// https://codeforces.com/problemset/problem/2075/D 2000 双背包 恰好装满+至少装满
 	// https://ac.nowcoder.com/acm/contest/6218/C 二维费用的情况+价值最小
-	zeroOneKnapsackAtLeastFillUp := func(values, weights []int, maxW int) int {
+	zeroOneKnapsackAtLeastFillUp := func(weights, values []int, maxW int) int {
 		f := make([]int, maxW+1)
 		for i := range f {
 			f[i] = 1e9 // 1e18
@@ -1510,7 +1525,7 @@ func _(abs func(int) int) {
 	// 0-1 背包 EXTRA: 打印字典序最小的方案
 	// 倒序遍历物品，同时用 fa 数组记录转移来源，这样跑完 DP 后，从第一个物品开始即可得到字典序最小的方案
 	// https://www.acwing.com/problem/content/description/12/
-	zeroOneKnapsackLexicographicallySmallestResult := func(values, weights []int, maxW int) (ans []int) {
+	zeroOneKnapsackLexicographicallySmallestResult := func(weights, values []int, maxW int) (ans []int) {
 		n := len(values)
 		f := make([]int, maxW+1) // fill
 		//f[0] = 0
@@ -1547,7 +1562,7 @@ func _(abs func(int) int) {
 	// https://atcoder.jp/contests/dp/tasks/dp_e
 	// https://codeforces.com/contest/1974/problem/E 1800
 	// https://codeforces.com/contest/1650/problem/F 2200
-	zeroOneKnapsackByValue := func(values, weights []int, maxW int) int {
+	zeroOneKnapsackByValue := func(weights, values []int, maxW int) int {
 		totValue := 0
 		for _, v := range values {
 			totValue += v
@@ -1585,7 +1600,7 @@ func _(abs func(int) int) {
 	// LC1449 https://leetcode.cn/problems/form-largest-integer-with-digits-that-add-up-to-target/ 恰好装满+打印方案 
 	// 【脑洞】求极限：lim_{maxW->∞} f[maxW]/maxW
 	// 思维扩展 https://codeforces.com/problemset/problem/10/E 2600
-	unboundedKnapsack := func(values, weights []int, maxW int) int {
+	unboundedKnapsack := func(weights, values []int, maxW int) int {
 		f := make([]int, maxW+1) // fill
 		//f[0] = 0
 		for i, v := range values {
@@ -1633,7 +1648,7 @@ func _(abs func(int) int) {
 
 	// 多重背包 - 未优化
 	// 转换（价值主导）https://codeforces.com/problemset/problem/922/E（由于要取 min 所以不能用二进制优化）
-	boundedKnapsack := func(stocks, values, weights []int, maxW int) int {
+	boundedKnapsack := func(stocks, weights, values []int, maxW int) int {
 		n := len(stocks)
 		f := make([][]int, n+1)
 		for i := range f {
@@ -1654,7 +1669,7 @@ func _(abs func(int) int) {
 	// 多重背包 - 优化 1 - 二进制优化
 	// 常数小，可能比单调队列优化还快
 	// 注意循环上界可以从 maxW 优化成 min(sum(w*num), maxW)
-	boundedKnapsackBinary := func(stocks, values, weights []int, maxW int) int {
+	boundedKnapsackBinary := func(stocks, weights, values []int, maxW int) int {
 		f := make([]int, maxW+1) // 求最小就 fill inf
 		for i, num := range stocks {
 			v, w := values[i], weights[i]
@@ -1673,7 +1688,7 @@ func _(abs func(int) int) {
 	// 参考挑战 p.340
 	// 时间复杂度 O(n*maxW)
 	// 注意循环上界可以从 maxW 优化成 min(sum(w*num), maxW)
-	boundedKnapsackMonotoneQueue := func(stocks, values, weights []int, maxW int) int {
+	boundedKnapsackMonotoneQueue := func(stocks, weights, values []int, maxW int) int {
 		f := make([]int, maxW+1) // 求最小就 fill inf
 		type pair struct{ maxF, j int }
 		q := []pair{}
@@ -2307,7 +2322,8 @@ func _(abs func(int) int) {
 	- LC1955 https://leetcode.cn/problems/count-number-of-special-subsequences/
 	https://codeforces.com/problemset/problem/446/A 1600
 	https://codeforces.com/problemset/problem/2061/C 1600 也可以线性 DP
-	https://codeforces.com/problemset/problem/2193/F 1600
+	https://codeforces.com/problemset/problem/2193/F 1600 三方向移动
+	- https://leetcode.cn/contest/2026_pudong_ai/problems/ZqPfxj/
 	https://codeforces.com/problemset/problem/1826/D 1700 式子变形
 	https://codeforces.com/problemset/problem/2052/F 1700 地板镶嵌
 	https://codeforces.com/problemset/problem/2029/C 1700
@@ -2416,6 +2432,7 @@ func _(abs func(int) int) {
 	https://codeforces.com/problemset/problem/1778/D 2100
 	https://codeforces.com/problemset/problem/908/D 2200
 	https://codeforces.com/problemset/problem/1097/D 2200
+	https://codeforces.com/problemset/problem/2200/G 2200
 	https://codeforces.com/problemset/problem/1623/D 2300
 	https://codeforces.com/problemset/problem/1824/B2 2300
 	https://codeforces.com/problemset/problem/24/D 2400 高斯消元 托马斯算法
@@ -2472,6 +2489,7 @@ func _(abs func(int) int) {
 	https://codeforces.com/problemset/problem/698/C 2400 概率
 	https://codeforces.com/problemset/problem/744/C 2400 状态设计
 	https://codeforces.com/problemset/problem/543/C 2500 状态转移
+	https://codeforces.com/problemset/problem/845/F 2500 轮廓线 状态设计
 	https://codeforces.com/problemset/problem/1209/E2 2500 循环移位
 	https://codeforces.com/problemset/problem/599/E 2600 树上子集状压
 	https://codeforces.com/problemset/problem/662/C 2600 状态设计 也可以 FWT
@@ -2492,6 +2510,7 @@ func _(abs func(int) int) {
 	https://ac.nowcoder.com/acm/problem/collection/810
 
 	轮廓线 DP
+	https://codeforces.com/problemset/problem/903/F 2200
 	https://codeforces.com/problemset/problem/845/F 2500 状态设计 一个格子一个格子地算
 	LCP76 魔法棋盘 https://leetcode.cn/problems/1ybDKD/
 	NOI01 炮兵阵地 https://www.luogu.com.cn/problem/P2704 状态设计 三进制状压（也可以算作枚举子集的子集，三进制子集的子集有 6^m 个）
@@ -2503,7 +2522,8 @@ func _(abs func(int) int) {
 	https://en.wikipedia.org/wiki/Hamiltonian_path
 	https://en.wikipedia.org/wiki/Hamiltonian_path_problem
 
-	DDP / DP of DP
+	DP 套 DP / DP of DP / DDP
+	https://oi-wiki.org/dp/dp-of-dp/
 	f 差分后如果只有 0 和 1，可以考虑状压差分数组
 	https://atcoder.jp/contests/abc391/tasks/abc391_g LCS
 	- https://www.luogu.com.cn/problem/P10614
@@ -3095,6 +3115,7 @@ func _(abs func(int) int) {
 	入门题 https://atcoder.jp/contests/abc154/tasks/abc154_e
 	      https://atcoder.jp/contests/dp/tasks/dp_s
 	      https://codeforces.com/problemset/problem/1036/C
+	      https://www.luogu.com.cn/problem/P2188
 	二进制 1 的个数恰为 k 的数字个数 https://codeforces.com/problemset/problem/431/D https://www.acwing.com/problem/content/1083/
 	是 m 的倍数且偶数位为 d 且奇数位不为 d 的数字个数 https://codeforces.com/problemset/problem/628/D
 	所有数字均出现偶数次的数字个数 https://codeforces.com/problemset/problem/855/E
@@ -4028,85 +4049,90 @@ func _(abs func(int) int) {
 	//  https://www.luogu.com.cn/problem/P5308
 	//  IOI16 aliens https://www.luogu.com.cn/problem/P5896
 	//  https://www.luogu.com.cn/problem/U72600
-	wqs := func(a []int, k int) (ans int) {
-		// 代码分为两部分：dpWithFee 和 sort.Search
+	wqs := func(a []int, least, m, l, r int) (ans int) {
+		// 代码分为两部分：dpWithoutLimit 和 sort.Search
 		// 前者是需要实现的 DP，后者是固定的模板，一般只需要注意二分上界
+		// 下面以 LC3957. 非重叠子数组最大和 II https://leetcode.cn/problems/maximum-sum-of-m-non-overlapping-subarrays-ii/ 为例
+		// 至少选 least 个、至多选 m 个不重叠的子数组，每个子数组的长度在 [l, r] 中，计算所选元素之和的最大值
 
-		// dpWithFee 是一个更容易解决的 DP：每次产生一次「选择」的时候（例如完成一次买卖），额外有手续费 fee，但没有至多 k 次的限制了
-		// 返回最大收益，以及在收益最大的前提下，「选择」次数的最大值
-		// LC714 https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
-		dpWithFee := func(fee int) (res, cnt int) {
-			f0, f1 := 0, math.MinInt/2
-			cnt0, cnt1 := 0, 0
-			for _, p := range a {
-				if f0-p >= f1 { // 取等号，让交易次数尽量多
-					f1 = f0 - p
-					cnt1 = cnt0
-				}
-				if f1+p-fee >= f0 { // 取等号，让交易次数尽量多
-					f0 = f1 + p - fee
-					cnt0 = cnt1 + 1 // 卖出才算完整交易
-				}
+		n := len(a)
+		sum := make([]int, n+1)
+		posSum := 0 // nums 中的正数之和，用于二分上界
+		negSum := 0 // nums 中的负数之和，用于二分下界
+		for i, x := range a {
+			sum[i+1] = sum[i] + x
+			if x > 0 {
+				posSum += x
+			} else {
+				negSum += x
 			}
-			return f0, cnt0
 		}
 
-		// 下面是 WQS 二分模板
-		// 以 LC188 为例 https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/
-		// 二分交易「手续费」fee，做一个 LC714 https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
-		// 那么 fee 越小，交易次数越多；fee 越大，交易次数越小
-		// 如果交易次数小于 k，说明 fee 取大了，反之 fee 取小了
-		// 如果某个 fee 对应着恰好 k 次交易，就得到了正确答案
-		//
-		// fee 最大为 slices.Max(a)，此时可以保证收益为 0（但仍然可以完成交易，比如卖出价格-买入价格-fee=0）
-		// +1 可以保证至少触发一次 ans 赋值
-		sort.Search(slices.Max(a)+1, func(fee int) bool {
-			res, cnt := dpWithFee(fee)
-			if cnt >= k { // 至少 k 次交易
-				ans = res + k*fee // 直接算，因为最终一定会二分到恰好 k 次交易
-				return false
-			}
-			if fee == 0 { // 说明无论如何，交易次数都小于 k
-				ans = res // fee 为 0 时，res 最大，也就是答案
-			}
-			return true
-		})
+		type pair struct{ f, cnt int }
+		less := func(a, b pair) bool {
+			// 计算规则：DP 值相同时，子数组个数 cnt 少的更优
+			return a.f < b.f || a.f == b.f && a.cnt > b.cnt
+		}
 
-		// 下面是另一个例子 https://www.luogu.com.cn/problem/P1484
-		// 这题的 dpWithFee 就只需要实现一个打家劫舍的 DP
-		dpWithFee = func(fee int) (res, cnt int) {
-			var f0, f1, cnt0, cnt1 int
-			for _, v := range a {
-				v -= fee
-				if f1 > f0+v { // 不选
-					f0 = f1
-					cnt0 = cnt1
-				} else { // 选（相等时也选）
-					f0, f1 = f1, f0+v
-					cnt0, cnt1 = cnt1, cnt0+1
+		// 没有 m 约束，但每选一个子数组就要把元素和减少 fee
+		// **所有参与状态转移的量，在比大小时，都要改成：在值相等时，额外比较 cnt 的大小**
+		dpWithoutLimit := func(fee int) pair {
+			f := make([]pair, n+1)
+			q := []int{}
+
+			for i := l; i <= n; i++ {
+				// 1. 入
+				j := i - l
+				v := pair{f[j].f - sum[j], f[j].cnt}
+				for len(q) > 0 && less(pair{f[q[len(q)-1]].f - sum[q[len(q)-1]], f[q[len(q)-1]].cnt}, v) {
+					q = q[:len(q)-1]
+				}
+				q = append(q, j)
+
+				// 2. 更新
+				choose := pair{f[q[0]].f - sum[q[0]] + sum[i] - fee, f[q[0]].cnt + 1}
+				if less(f[i-1], choose) {
+					f[i] = choose
+				} else {
+					f[i] = f[i-1]
+				}
+
+				// 3. 出，下一轮循环队首离开窗口
+				if q[0] <= i-r {
+					q = q[1:]
 				}
 			}
-			return f1, cnt1
-		}
-		// WQS 模板（代码和上面一样）
-		// fee 最大为 slices.Max(a)，此时可以保证收益为 0
-		sort.Search(slices.Max(a)+1, func(fee int) bool {
-			res, cnt := dpWithFee(fee)
-			if cnt >= k {
-				ans = res + k*fee
-				return false
-			}
-			if fee == 0 {
-				ans = res
-			}
-			return true
-		})
 
+			return f[n]
+		}
+
+		res0 := dpWithoutLimit(0)
+		if least <= res0.cnt && res0.cnt <= m { // 直接满足题目要求
+			return res0.f
+		}
+
+		target := m
+		if res0.cnt < least {
+			target = least
+		}
+
+		// 现在专注于解决「选恰好 target 个子数组」的问题
+		left, right := negSum, posSum+1
+		sort.Search(right-left, func(fee int) bool {
+			fee += left
+			res := dpWithoutLimit(fee)
+			if res.cnt <= target {
+				ans = res.f + target*fee // 不需要取 max，二分最终会缩小到凸函数中的 x=target 所在的那条线段
+				return true
+			}
+			return false
+		})
 		return
 	}
 
 	// 决策单调性优化 DP
 	// todo 决策单调性优化总结 https://www.luogu.com.cn/blog/command-block/dp-di-jue-ce-dan-diao-xing-you-hua-zong-jie
+	// https://leetcode.cn/problems/stone-game-v/
 	// https://codeforces.com/problemset/problem/229/D 2100
 	// https://codeforces.com/problemset/problem/1101/F 2400 看似二分，但实际上只是对状态定义有帮助（最大间距的最小值）
 	// https://codeforces.com/problemset/problem/868/F 2500 分治+莫队均摊 todo
@@ -4120,18 +4146,6 @@ func _(abs func(int) int) {
 	// 扔蛋问题 LC887 https://leetcode.cn/problems/super-egg-drop/
 	// https://codeforces.com/problemset/problem/321/E 2600
 	// todo 看看划分型 DP 题单有没有可以优化的题目
-
-	// CDQ 分治优化 DP
-	// todo https://oi-wiki.org/misc/cdq-divide/
-	//  推荐 https://blog.nowcoder.net/n/f44d4aada5a24f619442dd6ddffa7320
-	//  推荐 https://zhuanlan.zhihu.com/p/332996578
-	//  https://www.bilibili.com/video/BV1mC4y1s7ic
-	//  [学习笔记]CDQ分治和整体二分 https://www.luogu.com.cn/blog/Owencodeisking/post-xue-xi-bi-ji-cdq-fen-zhi-hu-zheng-ti-er-fen
-	//  https://www.luogu.com.cn/blog/ljc20020730/cdq-fen-zhi-xue-xi-bi-ji
-	//  动态逆序对 https://www.luogu.com.cn/problem/P3157 https://www.luogu.com.cn/problem/UVA11990
-	//  CDQ 优化 DP https://www.luogu.com.cn/problem/P2487
-	//  https://codeforces.com/problemset/problem/848/C
-	//  数据结构 https://codeforces.com/problemset/problem/1045/G https://codeforces.com/problemset/problem/762/E
 
 	/* 树形 DP
 	思考方向：
@@ -4739,12 +4753,16 @@ func _(abs func(int) int) {
 				}
 				// 站在 v 的角度，不往 w 走，能走多远？
 				// 要么往上走（fromUp），要么往除了 w 的其余子树走（mx），二者取最大值
+				// 如果是求 min 的题目，需要讨论是只有一个儿子，还是有多个儿子
 				mx := sub.maxD
 				if w == sub.w {
 					mx = sub.maxD2
 				}
-				// 对于 w 来说，还要加上从 w 到 v 的边权
-				reroot(w, v, max(fromUp, mx)+e.wt)
+				// 还可以往父节点走
+				mx = max(mx, fromUp)
+				// 对于 w 来说，还要加上「从 w 到 v」的边权
+				mx += e.wt
+				reroot(w, v, mx)
 			}
 		}
 		reroot(0, -1, 0)
