@@ -48,8 +48,10 @@ https://codeforces.com/problemset/problem/1856/C 1600
     - https://leetcode.cn/problems/sum-of-digit-differences-of-all-pairs/
     - 反向构造 https://codeforces.com/problemset/problem/1927/B 900
 https://leetcode.com/discuss/interview-question/3685049/25-variations-of-Two-sum-question
+https://codeforces.com/problemset/problem/2259/C 1000
 https://codeforces.com/problemset/problem/1270/B 1200 式子变形 或者 脑筋急转弯
 https://codeforces.com/problemset/problem/1420/B 1200
+https://atcoder.jp/contests/abc433/tasks/abc433_d 1280 ~CF
 https://codeforces.com/problemset/problem/318/B 1300 子串
 https://codeforces.com/problemset/problem/1931/D 1300 pair
 https://codeforces.com/problemset/problem/1926/D 1300
@@ -79,6 +81,7 @@ https://codeforces.com/problemset/problem/466/C 1700
 https://codeforces.com/problemset/problem/2117/H 2500
 
 前缀和与哈希表
+https://codeforces.com/problemset/problem/2276/C 1100
 https://codeforces.com/problemset/problem/1915/E 1300 交错前缀和
 https://codeforces.com/problemset/problem/2145/C 1300
 https://codeforces.com/problemset/problem/1996/E 1600 子数组中的和为 k 的子数组的个数之和
@@ -91,6 +94,7 @@ https://atcoder.jp/contests/abc146/tasks/abc146_e 1762
 https://atcoder.jp/contests/abc233/tasks/abc233_d
 https://atcoder.jp/contests/joisc2014/tasks/joisc2014_h 三个字母映射到一些大整数上，从而区分开
 https://www.luogu.com.cn/problem/P1627
+https://www.luogu.com.cn/problem/P3514
 LC974 和可被 K 整除的子数组 https://leetcode.cn/problems/subarray-sums-divisible-by-k/
 - 变形：乘积可以被 k 整除
 - a[i] = gcd(a[i], k) 之后窗口乘积是 k 的倍数就行，不会乘爆
@@ -115,17 +119,17 @@ https://codeforces.com/problemset/problem/1296/C
 
 前后缀分解
 部分题目也可以用状态机 DP 解决
-- [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/)（[视频讲解](https://www.bilibili.com/video/BV1Qg411q7ia/?t=3m05s)）
-  - 带修接雨水 https://codeforces.com/gym/104821/problem/M
-  - https://www.zhihu.com/question/627281278/answer/3280684055
-  - 全排列接雨水 https://atcoder.jp/contests/tenka1-2015-final/tasks/tenka1_2015_final_e
-- [926. 将字符串翻转到单调递增](https://leetcode.cn/problems/flip-string-to-monotone-increasing/)
-  - https://codeforces.com/problemset/problem/180/C 1400
-  - https://codeforces.com/problemset/problem/846/A 1500
-https://atcoder.jp/contests/abc346/tasks/abc346_d
+LC42. 接雨水 https://leetcode.cn/problems/trapping-rain-water/ 视频讲解 https://www.bilibili.com/video/BV1Qg411q7ia/?t=3m05s
+- 带修接雨水 https://codeforces.com/gym/104821/problem/M
+- https://www.zhihu.com/question/627281278/answer/3280684055
+- 全排列接雨水 https://atcoder.jp/contests/tenka1-2015-final/tasks/tenka1_2015_final_e
+LC926. 将字符串翻转到单调递增 https://leetcode.cn/problems/flip-string-to-monotone-increasing/
+- https://codeforces.com/problemset/problem/180/C 1400
+- https://codeforces.com/problemset/problem/846/A 1500
+https://codeforces.com/problemset/problem/2266/C 1000 做法同 LC1422 https://leetcode.cn/problems/maximum-score-after-splitting-a-string/
 https://codeforces.com/problemset/problem/1921/D 1100
 https://codeforces.com/problemset/problem/1006/C 1200 也可以相向双指针
-https://codeforces.com/problemset/problem/234/C 1300
+https://codeforces.com/problemset/problem/234/C  1300
 https://codeforces.com/problemset/problem/1178/B 1300
 https://codeforces.com/problemset/problem/1443/B 1300
 https://codeforces.com/problemset/problem/2026/B 1300 做到 O(n)
@@ -143,27 +147,29 @@ https://codeforces.com/problemset/problem/2028/C 1600
 https://codeforces.com/problemset/problem/2031/D 1700
 https://codeforces.com/problemset/problem/1957/D 1900
 https://codeforces.com/problemset/problem/1969/D 1900
+https://codeforces.com/problemset/problem/2228/D 1900
 https://codeforces.com/problemset/problem/2101/C 2200 式子变形可知，只需知道前缀所选数的下标，和后缀所选数的下标
 https://codeforces.com/problemset/problem/1837/F 2400
 https://codeforces.com/problemset/problem/2005/D 2400 GCD logTrick
-https://codeforces.com/problemset/problem/314/D 2500
-https://codeforces.com/problemset/problem/835/F 2500
-https://codeforces.com/problemset/problem/946/G 2500
+https://codeforces.com/problemset/problem/314/D  2500
+https://codeforces.com/problemset/problem/835/F  2500
+https://codeforces.com/problemset/problem/946/G  2500
 https://codeforces.com/problemset/problem/1701/E 2500 DP / 也可以用状态机 DP，那样无需前后缀分解
-https://codeforces.com/problemset/problem/622/F 2600
+https://codeforces.com/problemset/problem/622/F  2600
+https://atcoder.jp/contests/abc346/tasks/abc346_d
 昆明 2024：至多修改一个子数组 [L,R] ：把元素都加上 k，最大化整个数组的 GCD
 - 预处理前后缀 GCD，由于前缀 GCD 只有 O(logU) 个不同的值，可以只枚举 O(logU) 个 L 和 O(n) 个 R，
 - 枚举 R 的同时计算修改后的子数组 GCD，然后和前后缀 GCD 求 GCD
 
 定长滑动窗口
-https://codeforces.com/problemset/problem/716/B 1300
+https://codeforces.com/problemset/problem/716/B  1300
 https://codeforces.com/problemset/problem/1955/D 1400
 https://codeforces.com/problemset/problem/2014/D 1400 有些另类，也可以用差分做
-https://codeforces.com/problemset/problem/608/B 1500
+https://codeforces.com/problemset/problem/608/B  1500
 https://codeforces.com/problemset/problem/1687/A 1600
-https://codeforces.com/problemset/problem/69/E 1800
-https://codeforces.com/problemset/problem/371/E 2000
-https://codeforces.com/problemset/problem/679/C 2400
+https://codeforces.com/problemset/problem/69/E   1800
+https://codeforces.com/problemset/problem/371/E  2000
+https://codeforces.com/problemset/problem/679/C  2400
 https://cses.fi/problemset/task/3405 滑动窗口 OR
 https://cses.fi/problemset/task/1077 滑动窗口 mex
 
@@ -178,8 +184,8 @@ https://codeforces.com/problemset/problem/1234/F 2200 翻转至多一个任意�
 
 不定长滑动窗口：求最短/最小
 https://codeforces.com/problemset/problem/1354/B 1200
-https://codeforces.com/problemset/problem/224/B 1500 和最小
-https://codeforces.com/problemset/problem/701/C 1500
+https://codeforces.com/problemset/problem/224/B  1500 和最小
+https://codeforces.com/problemset/problem/701/C  1500
 https://codeforces.com/problemset/problem/1777/C 1700
 https://codeforces.com/problemset/problem/2093/G 1900
 https://www.luogu.com.cn/problem/P10719 二维转一维
@@ -189,14 +195,16 @@ https://www.luogu.com.cn/problem/P9474 值域滑窗
 https://codeforces.com/problemset/problem/1982/C 1200
 
 不定长滑动窗口：求子数组个数
-https://codeforces.com/problemset/problem/550/B 1400 变形：改成子数组
+https://atcoder.jp/contests/abc430/tasks/abc430_c 1278 ~CF
+https://codeforces.com/problemset/problem/550/B  1400 变形：改成子数组
 https://codeforces.com/problemset/problem/2149/E 1500 恰好型
 https://codeforces.com/problemset/problem/1994/C 1600 结合 DP
+https://codeforces.com/problemset/problem/1418/G 2500
 https://atcoder.jp/contests/abc130/tasks/abc130_d 和至少为 k 的子数组个数
-其它题目见【前缀和】
 
 滑窗的同时维护数据
 https://codeforces.com/problemset/problem/898/D 1600
+https://codeforces.com/problemset/problem/2259/G 1900
 
 多指针
 https://codeforces.com/problemset/problem/602/B 入门题
@@ -259,8 +267,8 @@ https://atcoder.jp/contests/abc353/tasks/abc353_c
 
 分组循环
 https://leetcode.cn/problems/longest-even-odd-subarray-with-threshold/solution/jiao-ni-yi-ci-xing-ba-dai-ma-xie-dui-on-zuspx/
-**适用场景**：按照题目要求，数组会被分割成若干组，每一组的判断/处理逻辑是相同的。
-**核心思想**：
+适用场景：按照题目要求，数组会被分割成若干组，每一组的判断/处理逻辑是相同的。
+核心思想：
 - 外层循环负责遍历组之前的准备工作（记录开始位置），和遍历组之后的统计工作（更新答案最大值）。
 - 内层循环负责遍历组，找出这一组最远在哪结束。
 这个写法的好处是，各个逻辑块分工明确，也不需要特判最后一组（易错点）。以我的经验，这个写法是所有写法中最不容易出 bug 的，推荐大家记住。
@@ -272,22 +280,27 @@ LC2495（会员）逆向思维 https://leetcode.cn/problems/number-of-subarrays-
 https://codeforces.com/problemset/problem/1743/C 1100
 https://codeforces.com/problemset/problem/2094/D 1100
 https://codeforces.com/problemset/problem/2111/C 1100
+https://codeforces.com/problemset/problem/2252/B 1100
 https://codeforces.com/problemset/problem/1272/C 1200
 https://codeforces.com/problemset/problem/1343/C 1200
+https://codeforces.com/problemset/problem/2244/D 1200
 https://codeforces.com/problemset/problem/1821/C 1300 枚举答案
 https://codeforces.com/problemset/problem/1873/F 1300
 https://codeforces.com/problemset/problem/2146/C 1300
-https://codeforces.com/problemset/problem/363/C 1400 分组循环 + 分组循环
+https://codeforces.com/problemset/problem/2254/D 1300
+https://codeforces.com/problemset/problem/363/C  1400 分组循环 + 分组循环
 https://codeforces.com/problemset/problem/1380/C 1400
-https://codeforces.com/problemset/problem/620/C 1500
-https://codeforces.com/problemset/problem/858/C 1500
+https://codeforces.com/problemset/problem/1628/A 1400 注：这题被力扣抄去当周赛题了 https://leetcode.cn/problems/lexicographically-maximum-mex-array/
+https://codeforces.com/problemset/problem/620/C  1500
+https://codeforces.com/problemset/problem/858/C  1500
 https://codeforces.com/problemset/problem/1753/A2 1500
 https://codeforces.com/problemset/problem/2093/E 1500
-https://codeforces.com/problemset/problem/525/C 1600
+https://codeforces.com/problemset/problem/525/C  1600
 https://codeforces.com/problemset/problem/1748/C 1600
 https://codeforces.com/problemset/problem/1849/D 1700
 https://codeforces.com/problemset/problem/2031/D 1700
-https://codeforces.com/problemset/problem/416/D 2400 推荐
+https://codeforces.com/problemset/problem/2252/D 1700
+https://codeforces.com/problemset/problem/416/D  2400 推荐
 
 哨兵
 - [1465. 切割后面积最大的蛋糕](https://leetcode.cn/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/) 1445
@@ -319,9 +332,12 @@ LC2193. 得到回文串的最少操作次数 https://leetcode.cn/problems/minimu
 https://codeforces.com/problemset/problem/1550/B 1000
 https://codeforces.com/problemset/problem/1920/B 1100
 https://codeforces.com/problemset/problem/1993/B 1100
+https://codeforces.com/problemset/problem/2241/D 1100 从左到右贪心
 https://codeforces.com/problemset/problem/2047/B O(n) 做法约 1200
 https://codeforces.com/problemset/problem/2117/C 1200
 https://codeforces.com/problemset/problem/2126/D 1200 区间贪心
+https://codeforces.com/problemset/problem/2161/C 1200 从大到小贪心
+https://codeforces.com/problemset/problem/2224/B 1200
 https://codeforces.com/problemset/problem/545/D 1300
 https://codeforces.com/problemset/problem/1279/B 1300
 https://codeforces.com/problemset/problem/1443/B 1300
@@ -388,6 +404,7 @@ LC2589 https://leetcode.cn/problems/minimum-time-to-complete-all-tasks/ 区间�
 - https://www.luogu.com.cn/problem/P1986
 - https://www.luogu.com.cn/problem/P10934
 - https://www.luogu.com.cn/problem/SP116
+https://www.luogu.com.cn/problem/P3076
 
 划分型贪心
 https://codeforces.com/problemset/problem/1992/F 1900 划分区间，每个区间无法选一些数，乘积恰好等于 x
@@ -430,6 +447,7 @@ https://codeforces.com/problemset/problem/1380/G 2600 放 k 个宝箱怪
 每次取两个数减一，最后剩下的数最小 / 操作次数最多
 或者说，每次删除两个不同元素，最多能删多少次？
 讲解 https://zhuanlan.zhihu.com/p/1945782212176909162
+模板代码：https://atcoder.jp/contests/abc459/tasks/abc459_d
 https://codeforces.com/problemset/problem/296/A 1100
 https://codeforces.com/problemset/problem/1574/B 1100
 https://codeforces.com/problemset/problem/1579/D 1400
@@ -499,6 +517,7 @@ https://codeforces.com/problemset/problem/2128/D 1600
 https://codeforces.com/problemset/problem/1608/C 1700
 https://codeforces.com/problemset/problem/1930/C 1700
 https://codeforces.com/problemset/problem/2124/D 1700
+https://codeforces.com/problemset/problem/2252/D 1700
 https://codeforces.com/problemset/problem/911/D  1800 逆序对
 https://codeforces.com/problemset/problem/1442/A 1800
 https://codeforces.com/problemset/problem/558/C  1900
@@ -515,9 +534,10 @@ https://codeforces.com/problemset/problem/2110/F 2400
 https://codeforces.com/problemset/problem/2004/F 2600
 LC2498 https://leetcode.cn/problems/frog-jump-ii/
 LC782 https://leetcode.cn/problems/transform-to-chessboard/
+https://www.luogu.com.cn/problem/P5329
 
 思维：脑筋急转弯
-https://codeforces.com/problemset/problem/2049/A 800
+https://codeforces.com/problemset/problem/2049/A  800
 https://codeforces.com/problemset/problem/1333/A 1000
 https://codeforces.com/problemset/problem/1632/B 1000 位运算 XOR
 https://codeforces.com/problemset/problem/1637/B 1100
@@ -600,6 +620,7 @@ https://codeforces.com/problemset/problem/2056/C  1200
 https://codeforces.com/problemset/problem/2072/C  1200
 https://codeforces.com/problemset/problem/2118/B  1200
 https://codeforces.com/problemset/problem/2134/B  1200 操作至多 k 次：把 a 的一个子序列的元素都增加 k，最终让 gcd(a) > 1（提示：从特殊到一般）
+https://codeforces.com/problemset/problem/2137/D  1200
 https://codeforces.com/problemset/problem/1717/C  1300
 https://codeforces.com/problemset/problem/1733/C  1300
 https://codeforces.com/problemset/problem/1788/C  1300
@@ -694,6 +715,7 @@ https://atcoder.jp/contests/arc088/tasks/arc088_b 1646=CF1956
 https://atcoder.jp/contests/arc145/tasks/arc145_a
 https://atcoder.jp/contests/agc015/tasks/agc015_d bit OR
 https://atcoder.jp/contests/abc178/tasks/abc178_f
+https://www.luogu.com.cn/problem/P12911
 构造反例 https://leetcode.cn/problems/parallel-courses-iii/solution/tuo-bu-pai-xu-dong-tai-gui-hua-by-endles-dph6/2310439
 构造 TLE 数据 https://leetcode.cn/problems/maximum-total-reward-using-operations-ii/solutions/2805413/bitset-you-hua-0-1-bei-bao-by-endlessche-m1xn/comments/2320111
 题单 https://www.luogu.com.cn/training/14#problems
@@ -702,9 +724,12 @@ https://atcoder.jp/contests/abc178/tasks/abc178_f
 在思考算法题/数学题时，「找不变量」是一个无处不在的主题，见 3b1b 视频（下面的链接）
 https://www.bilibili.com/video/BV164411k7e3/ The unexpectedly hard windmill question (2011 IMO, Q2)
 https://codeforces.com/problemset/problem/2092/C 1200
+https://codeforces.com/problemset/problem/2218/E 1200
 https://codeforces.com/problemset/problem/1881/D 1300
 https://codeforces.com/problemset/problem/1889/A 1300
 https://codeforces.com/problemset/problem/2171/C2 1400
+https://codeforces.com/problemset/problem/2254/F 1900
+https://codeforces.com/problemset/problem/2227/G 2000
 https://codeforces.com/problemset/problem/1365/F 2100 仍然对称
 https://codeforces.com/problemset/problem/1775/E 2100 有点差分的味道，想想前缀和
 https://atcoder.jp/contests/arc119/tasks/arc119_c 操作不影响交错和
@@ -723,10 +748,13 @@ https://codeforces.com/problemset/problem/1931/C  1000
 https://codeforces.com/problemset/problem/2039/B  1000
 https://codeforces.com/problemset/problem/2043/B  1100
 https://codeforces.com/problemset/problem/2162/C  1100
+https://codeforces.com/problemset/problem/2247/C  1100
 https://codeforces.com/problemset/problem/262/B   1200
 https://codeforces.com/problemset/problem/1364/A  1200
 https://codeforces.com/problemset/problem/1860/B  1200
 https://codeforces.com/problemset/problem/2053/B  1200
+https://codeforces.com/problemset/problem/2224/B  1200
+https://codeforces.com/problemset/problem/2259/D  1200
 https://codeforces.com/problemset/problem/870/C   1300
 https://codeforces.com/problemset/problem/1698/C  1300
 https://codeforces.com/problemset/problem/2065/C2 1300
@@ -741,6 +769,7 @@ https://codeforces.com/problemset/problem/1292/A  1400 也有简单写法
 https://codeforces.com/problemset/problem/1605/C  1400
 https://codeforces.com/problemset/problem/1989/C  1400
 https://codeforces.com/problemset/problem/2110/C  1400
+https://atcoder.jp/contests/abc413/tasks/abc413_d 1424 ~CF
 https://codeforces.com/problemset/problem/115/B   1500
 https://codeforces.com/problemset/problem/960/B   1500
 https://codeforces.com/problemset/problem/1051/C  1500
@@ -761,6 +790,7 @@ https://codeforces.com/problemset/problem/382/C   1700
 https://codeforces.com/problemset/problem/411/C   1700
 https://codeforces.com/problemset/problem/1516/C  1700
 https://codeforces.com/problemset/problem/1799/C  1700
+https://atcoder.jp/contests/abc457/tasks/abc457_e 1791 ~CF
 https://codeforces.com/problemset/problem/1468/J  1800 MST
 https://codeforces.com/problemset/problem/1833/G  1800 样例给得挺良心的
 https://codeforces.com/problemset/problem/1955/F  1800
@@ -771,12 +801,15 @@ https://codeforces.com/problemset/problem/1095/E  1900
 https://codeforces.com/problemset/problem/1714/F  1900 锻炼代码实现技巧的好题
 https://codeforces.com/problemset/problem/1747/D  1900 结论 不变量
 https://codeforces.com/problemset/problem/1914/F  1900
+https://codeforces.com/problemset/problem/2233/D  1900 有简单做法，见我的代码 https://codeforces.com/problemset/submission/2233/385743570
 https://codeforces.com/problemset/problem/1088/D  2000
 https://codeforces.com/problemset/problem/1763/C  2000
 https://codeforces.com/problemset/problem/1951/E  2000 把 s 划分成若干段，使得每一段都不是回文串
 https://codeforces.com/problemset/problem/1978/E  2000
 https://codeforces.com/problemset/problem/2051/F  2000
 https://codeforces.com/problemset/problem/1811/F  2100
+https://codeforces.com/problemset/problem/2127/E  2100
+https://codeforces.com/problemset/problem/659/G   2300
 https://codeforces.com/problemset/problem/1798/E  2300
 https://codeforces.com/problemset/problem/209/C   2400
 https://codeforces.com/problemset/problem/416/D   2400 推荐
@@ -978,7 +1011,8 @@ https://codeforces.com/problemset/problem/1932/C 1400
 https://atcoder.jp/contests/abc375/tasks/abc375_f
 https://atcoder.jp/contests/abc379/tasks/abc379_f
 
-逆向思维 / 正难则反（不可行方案通常比可行方案好求）
+逆向思维 / 正难则反
+https://codeforces.com/problemset/problem/2208/C 1300
 https://codeforces.com/problemset/problem/1792/C 1500
 - 相似题目 https://codeforces.com/problemset/problem/1367/F1 2100
 https://codeforces.com/problemset/problem/1882/B
@@ -1416,6 +1450,8 @@ func _() {
 	// https://codeforces.com/problemset/problem/1923/C 1400 构造
 	// https://codeforces.com/problemset/problem/1141/C 1500
 	// https://codeforces.com/problemset/problem/2009/F 1700
+	// https://atcoder.jp/contests/abc450/tasks/abc450_e 1734 ~CF
+	// https://codeforces.com/problemset/problem/2259/G 1900
 	// https://codeforces.com/problemset/problem/901/C 2300
 	// https://www.luogu.com.cn/problem/P12246 撤销-更新-恢复
 	prefixSum := func(arr []int) {
@@ -2084,8 +2120,10 @@ func _() {
 	}
 
 	// 二阶差分
-	// 比如金字塔式更新 +1 +2 +3 +4 +3 +2 +1
+	// 等差数列更新 +1 +2 +3 +4
+	// 金字塔式更新 +1 +2 +3 +4 +3 +2 +1
 	// https://codeforces.com/problemset/problem/1661/D 1900 简化
+	// https://atcoder.jp/contests/abc407/tasks/abc407_f 2027 ~CF 标准问题
 	// https://codeforces.com/problemset/problem/1710/B 2100
 	// https://www.luogu.com.cn/problem/U318099?contestId=123900
 	// todo LC2735 https://leetcode.cn/problems/collecting-chocolates/
@@ -2102,6 +2140,10 @@ func _() {
 		// a[r] += base+step*(r-l)
 		// 一般题目中的 step 会取 1 或者 -1
 		update := func(l, r, base, step int) {
+			if l > r {
+				return
+			}
+
 			diff[l] += base
 			diff[r+1] -= base + step*(r-l) // 修正
 
@@ -2189,11 +2231,9 @@ func _() {
 
 	// 二维差分
 	// 【图解】从一维差分到二维差分 https://leetcode.cn/problems/stamping-the-grid/solution/wu-nao-zuo-fa-er-wei-qian-zhui-he-er-wei-zwiu/
-	// 模板题 LC2536 https://leetcode.cn/problems/increment-submatrices-by-one/ 1583
-	// LC2132 https://leetcode.cn/problems/stamping-the-grid/ 2364（也可以不用差分）
+	// https://atcoder.jp/contests/abc434/tasks/abc434_d 1398 ~CF
+	// https://codeforces.com/problemset/problem/1985/H2 2200
 	// https://www.luogu.com.cn/problem/P3397
-	// LCP74 离散化 https://leetcode.cn/problems/xepqZ5/
-	// https://codeforces.com/problemset/problem/1985/H2
 	diff2D := func(n, m int) {
 		diff := make([][]int, n+2)
 		for i := range diff {

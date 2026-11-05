@@ -2,6 +2,7 @@ package copypasta
 
 import (
 	"maps"
+	"math/bits"
 	"slices"
 	"sort"
 )
@@ -11,51 +12,24 @@ import (
 树状数组 = 没有右子树的线段树
 
 https://en.wikipedia.org/wiki/Fenwick_tree
-【推荐阅读】带你发明树状数组！https://leetcode.cn/problems/range-sum-query-mutable/solution/dai-ni-fa-ming-shu-zhuang-shu-zu-fu-shu-lyfll/
-
+带你发明树状数组 https://leetcode.cn/problems/range-sum-query-mutable/solution/dai-ni-fa-ming-shu-zhuang-shu-zu-fu-shu-lyfll/
 可视化 https://visualgo.net/zh/fenwicktree
-
-todo 从0到inf，超详细的树状数组详解 https://www.luogu.com.cn/article/6ewhbfs5
- 浅谈树状数组的优化及扩展 https://www.luogu.com.cn/article/790vjft4
- 浅谈树状数组套权值树 https://www.luogu.com.cn/article/8uekknpx
 https://oi-wiki.org/ds/bit/
+从0到inf，超详细的树状数组详解 https://www.luogu.com.cn/article/6ewhbfs5
+浅谈树状数组的优化及扩展 https://www.luogu.com.cn/article/790vjft4
+浅谈树状数组套权值树 https://www.luogu.com.cn/article/8uekknpx
 https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/FenwickTree.java.html
 
 模板题
 LC307 https://leetcode.cn/problems/range-sum-query-mutable/
 https://www.luogu.com.cn/problem/P3374
 
-问：给一堆区间，计算有多少对区间相交。
-答：按右端点从小到大排序，这样之前遍历过的区间一定在左边。
-   然后查询 [l,r] 中有多少个之前遍历过的区间的右端点，即为在 [l,r] 左边的与 [l,r] 相交的区间个数。
-   至于其他的与 [l,r] 相交的区间，会在后续遍历中统计。
-
-https://codeforces.com/problemset/problem/1234/D 1600
-https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
-https://atcoder.jp/contests/arc075/tasks/arc075_c
-静态区间种类 - 离线做法
-    https://www.luogu.com.cn/problem/P1972
-    https://atcoder.jp/contests/abc174/tasks/abc174_f
-    https://codeforces.com/problemset/problem/246/E 2400
-    https://codeforces.com/problemset/problem/594/D 2500
-置换 LC2179 https://leetcode.cn/problems/count-good-triplets-in-an-array/
-- 同样的置换思想 LC1713 https://leetcode.cn/problems/minimum-operations-to-make-a-subsequence/
-题目推荐 https://cp-algorithms.com/data_structures/fenwick.html#toc-tgt-12
-树状数组的性质能使其支持动态 [1,x] 或 [x,n] 范围上的最值更新查询等操作
-    https://codeforces.com/problemset/problem/629/D
-    https://codeforces.com/problemset/problem/1635/F
-好题 https://www.luogu.com.cn/problem/P2345 https://www.luogu.com.cn/problem/P5094
-多变量统计 https://codeforces.com/problemset/problem/1194/E
-         T4 https://www.nowcoder.com/discuss/1022136
-最多交换 k 次相邻字母后，得到的最小字典序
-- LC1505 https://leetcode.cn/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/
-LC2921 https://leetcode.cn/problems/maximum-profitable-triplets-with-increasing-prices-ii/
-
 https://codeforces.com/problemset/problem/1915/F 1500
 https://codeforces.com/problemset/problem/1234/D 1600
-https://atcoder.jp/contests/abc157/tasks/abc157_e 1443~CF1600
 https://codeforces.com/problemset/problem/627/B 1700 模板题
+https://atcoder.jp/contests/abc461/tasks/abc461_e 1793 ~CF
 https://codeforces.com/problemset/problem/652/D 1800 区间包含计数
+https://atcoder.jp/contests/abc157/tasks/abc157_e 1802 ~CF
 https://codeforces.com/problemset/problem/597/C 1900 长为 k 的上升子序列个数
 https://codeforces.com/problemset/problem/961/E 1900（不止一种做法）
 https://codeforces.com/problemset/problem/2042/D 1900
@@ -93,11 +67,37 @@ https://atcoder.jp/contests/abc392/tasks/abc392_f 也可以用 Splay 树
 https://atcoder.jp/contests/abc256/tasks/abc256_f 多重前缀和
 https://atcoder.jp/contests/abc221/tasks/abc221_e
 https://atcoder.jp/contests/abc368/tasks/abc368_g
+https://www.luogu.com.cn/problem/P5677 离线
+https://www.luogu.com.cn/problem/P2448
 https://www.lanqiao.cn/problems/5131/learning/?contest_id=144
 贡献 https://www.lanqiao.cn/problems/12467/learning/?contest_id=167
 https://codeforces.com/gym/101649 I 题
 http://poj.org/problem?id=2155
 http://poj.org/problem?id=2886
+
+https://atcoder.jp/contests/arc075/tasks/arc075_c
+静态区间种类 - 离线做法
+    https://www.luogu.com.cn/problem/P1972
+    https://atcoder.jp/contests/abc174/tasks/abc174_f
+    https://codeforces.com/problemset/problem/246/E 2400
+    https://codeforces.com/problemset/problem/594/D 2500
+置换 LC2179 https://leetcode.cn/problems/count-good-triplets-in-an-array/
+- 同样的置换思想 LC1713 https://leetcode.cn/problems/minimum-operations-to-make-a-subsequence/
+题目推荐 https://cp-algorithms.com/data_structures/fenwick.html#toc-tgt-12
+树状数组的性质能使其支持动态 [1,x] 或 [x,n] 范围上的最值更新查询等操作
+    https://codeforces.com/problemset/problem/629/D
+    https://codeforces.com/problemset/problem/1635/F
+好题 https://www.luogu.com.cn/problem/P2345 https://www.luogu.com.cn/problem/P5094
+多变量统计 https://codeforces.com/problemset/problem/1194/E
+         T4 https://www.nowcoder.com/discuss/1022136
+最多交换 k 次相邻字母后，得到的最小字典序
+- LC1505 https://leetcode.cn/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/
+LC2921 https://leetcode.cn/problems/maximum-profitable-triplets-with-increasing-prices-ii/
+
+问：给一堆区间，计算有多少对区间相交。
+答：按右端点从小到大排序，这样之前遍历过的区间一定在左边。
+   然后查询 [l,r] 中有多少个之前遍历过的区间的右端点，即为在 [l,r] 左边的与 [l,r] 相交的区间个数。
+   至于其他的与 [l,r] 相交的区间，会在后续遍历中统计。
 
 有关【逆序对】的题目，见下面的 cntInversions
 
@@ -147,12 +147,8 @@ func (t fenwick) query(l, r int) int {
 	return t.pre(r) - t.pre(l-1)
 }
 
-// 求权值树状数组第 k 小的数（k 从 1 开始）
+// 值域树状数组
 // 这里每个叶子 t[i] 表示 i 的个数
-// 返回最小的 x 满足 ∑i=[1..x] t[i] >= k
-// 思路类似【倍增】的查询，不断寻找 ∑<k 的数（位置），最后 +1 就是答案
-// 如果第 k 小的数不存在，返回 len(t)
-// 注：如果是普通树状数组，相当于查找前缀和 >= k 的最小下标（lowerBound），见 https://codeforces.com/problemset/problem/992/E
 // https://oi-wiki.org/ds/fenwick/#%E5%8D%95%E7%82%B9%E4%BF%AE%E6%94%B9%E6%9F%A5%E8%AF%A2%E5%85%A8%E5%B1%80%E7%AC%AC-k-%E5%B0%8F
 // https://codeforces.com/blog/entry/61364
 //
@@ -162,15 +158,60 @@ func (t fenwick) query(l, r int) int {
 // https://atcoder.jp/contests/abc287/tasks/abc287_g
 // https://www.luogu.com.cn/problem/P4137 二分
 // - 代码见本页面的 rangeMex
-func (t fenwick) kth(k int) (res int) {
-	const height = 17 // bits.Len(uint(n))
-	for b := 1 << (height - 1); b > 0; b >>= 1 {
-		if nxt := res | b; nxt < len(t) && t[nxt] < k {
-			k -= t[nxt]
-			res = nxt
+type fenwickPair struct{ cnt, sum int }
+type fenwickK struct {
+	t       []fenwickPair
+	sorted  []int
+	highBit int
+}
+
+// sorted 是所有插入数据（update 的参数 val）排序去重后的结果
+func newFenwickTreeK(sorted []int) fenwickK {
+	n := len(sorted)
+	return fenwickK{
+		t:       make([]fenwickPair, n+1),
+		sorted:  sorted,
+		highBit: 1 << (bits.Len(uint(n)) - 1),
+	}
+}
+
+// 添加 num 个 val，其中 val 离散化后的值为 i（i 从 1 开始）
+// 如果 num < 0，表示减少 -num 个 val
+func (f *fenwickK) update(i, num, val int) {
+	for ; i < len(f.t); i += i & -i {
+		f.t[i].cnt += num
+		f.t[i].sum += val
+	}
+}
+
+// 返回第 k 小的数（k 从 1 开始）
+// 注：如果是普通树状数组，最后返回 i，即为前缀和 >= k 的最小下标（0-index），见 https://codeforces.com/problemset/problem/992/E
+func (f *fenwickK) kth(k int) int {
+	t := f.t
+	i := 0
+	for b := f.highBit; b > 0; b >>= 1 {
+		if nxt := i | b; nxt < len(t) && t[nxt].cnt < k {
+			k -= t[nxt].cnt
+			i = nxt
 		}
 	}
-	return res + 1
+	return f.sorted[i]
+}
+
+// 返回前 k 小的数之和（k 从 1 开始）
+func (f *fenwickK) preSum(k int) (s int) {
+	t := f.t
+	i := 0
+	for b := f.highBit; b > 0; b >>= 1 {
+		if nxt := i | b; nxt < len(t) && t[nxt].cnt < k {
+			k -= t[nxt].cnt
+			s += t[nxt].sum
+			i = nxt
+		}
+	}
+	// 加上等于第 k 小的数
+	s += f.sorted[i] * k
+	return
 }
 
 // 离线二维数点
@@ -250,7 +291,6 @@ func areaPointCountOffline(points []struct{ x, y int }, queries []struct{ x1, x2
 
 // [0] 维护 ∑diff[i]
 // [1] 维护 ∑i*diff[i]
-// 为了更好地利用缓存，写成 [][2] 而不是 [2][]
 type fenwickDiff [][2]int
 
 func newFenwickTreeDiff(n int) fenwickDiff {
