@@ -1,4 +1,6 @@
-# 算法竞赛模板库 by 灵茶山艾府 💭💡🎈
+# 算法竞赛模板库
+
+> 本项目基于 [灵茶山艾府（EndlessCheng）](https://github.com/EndlessCheng) 的 [codeforces-go](https://github.com/EndlessCheng/codeforces-go)，现由 [daozhanglv](https://github.com/daozhanglv) 独立维护。模板和题解的主要内容来自原项目，原版权声明见 [LICENSE](./LICENSE)（MIT）。
 
 ## 快速开始
 
