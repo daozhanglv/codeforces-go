@@ -186,19 +186,19 @@ func sortCollections() {
 
 		// 判断是否为非降序列
 		sort.IntsAreSorted(a)
-		slices.IsSorted(a)
+		_ = slices.IsSorted(a)
 
 		// 判断是否为严格递增序列
 		sort.SliceIsSorted(a, func(i, j int) bool { return a[i] <= a[j] })
-		slices.IsSortedFunc(a, func(x, y int) int { return x - y - 1 })
+		_ = slices.IsSortedFunc(a, func(x, y int) int { return x - y - 1 })
 
 		// 判断是否为非增序列
 		sort.IsSorted(sort.Reverse(sort.IntSlice(a)))
-		slices.IsSortedFunc(a, func(x, y int) int { return y - x })
+		_ = slices.IsSortedFunc(a, func(x, y int) int { return y - x })
 
 		// 判断是否为严格递减序列
 		sort.SliceIsSorted(a, func(i, j int) bool { return a[i] >= a[j] })
-		slices.IsSortedFunc(a, func(x, y int) int { return y - x - 1 })
+		_ = slices.IsSortedFunc(a, func(x, y int) int { return y - x - 1 })
 
 		var x int
 		_ = []any{

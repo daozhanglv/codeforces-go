@@ -1021,9 +1021,8 @@ func _(x int, abs func(int) int) {
 // https://halfrost.com/go_s2_de_bruijn/
 
 // 返回 n xor x, x <= n 的取值范围（由若干区间组成）
-func (binary) allXorIntervals(n uint) (ans [][2]uint) {
-	panic(-1)
-}
+// TODO: 未实现
+// func allXorIntervals(n uint) (ans [][2]uint)
 
 // https://atcoder.jp/contests/agc015/tasks/agc015_d
 

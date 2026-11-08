@@ -5,6 +5,7 @@ on:
     paths:
       - 'main/testutil/**'
       - 'leetcode/testutil/**'
+      - 'copypasta/*.go'
       - 'copypasta/treap/**'
       - 'main/1-99/10C*'
       - 'main/1-99/14D*'
@@ -17,6 +18,7 @@ on:
     paths:
       - 'main/testutil/**'
       - 'leetcode/testutil/**'
+      - 'copypasta/*.go'
       - 'copypasta/treap/**'
       - 'main/1-99/10C*'
       - 'main/1-99/14D*'
