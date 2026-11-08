@@ -10,7 +10,7 @@ sh scripts/check.sh
 
 脚本可以从任意工作目录调用，也可以用 `GO=/path/to/go sh scripts/check.sh` 指定 Go 可执行文件。所有测试均禁用结果缓存，并设置超时。
 
-自动检查覆盖 `main/testutil`、`leetcode/testutil`、四个 `copypasta/treap` 包，以及 CF10C、CF14D、CF20C 的内嵌样例。它验证公共工具和部分代表性题解，不代表所有历史题解都已通过检查。修改其他题目或模板时，还需运行对应的有限测试。CI 在上述代码、检查脚本或模块文件变动时触发，也支持手动触发。
+自动检查覆盖 `copypasta` 主模板包（`go vet` 和测试）、`main/testutil`、`leetcode/testutil`、四个 `copypasta/treap` 包，以及 CF10C、CF14D、CF20C 的内嵌样例。它验证公共工具和部分代表性题解，不代表所有历史题解都已通过检查。修改其他题目或模板时，还需运行对应的有限测试。CI 在上述代码、检查脚本或模块文件变动时触发，也支持手动触发。
 
 不要默认运行全仓库测试：`copypasta/template` 中部分测试是联网生成器，有些会循环重试；部分题目测试依赖被忽略的本地 `.txt` 文件；无尽对拍需要单独运行并手动停止。
 
