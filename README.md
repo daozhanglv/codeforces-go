@@ -13,7 +13,7 @@ go version
 sh scripts/check.sh
 ```
 
-首次执行测试需要联网下载 Go 依赖。检查脚本会运行公共测试工具、四个 Treap 包的测试（包含 race 检查），以及三道自带样例的 Codeforces 题目；也可在 GitHub Actions 的 **Maintenance checks** 中手动运行。
+首次执行测试需要联网下载 Go 依赖。检查脚本会检查 `copypasta` 主模板包能否通过 `go vet` 和测试，并运行公共测试工具、四个 Treap 包的测试（包含 race 检查），以及三道自带样例的 Codeforces 题目；也可在 GitHub Actions 的 **Maintenance checks** 中手动运行。
 
 | 目录 | 内容 |
 | --- | --- |
