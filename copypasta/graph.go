@@ -1979,7 +1979,7 @@ func (*graph) floydShortestPath(n int, edges [][]int) [][]int {
 		for j := range f[i] {
 			f[i][j] = inf
 		}
-		f[0][0] = 0
+		f[i][i] = 0
 	}
 	for _, e := range edges {
 		v, w, wt := e[0], e[1], e[2]
